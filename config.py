@@ -95,12 +95,8 @@ PG_DB       = os.getenv('PGDATABASE', 'healthpro')
 PG_USER     = os.getenv('PGUSER',     'postgres')
 PG_PASSWORD = os.getenv('PGPASSWORD', 'postgres')
 
-# ── Fallback SQLite Path ───────────────────────────────────────────────────
-# Use /tmp on Render for persistent storage during deployment
-if os.environ.get('RENDER'):
-    DB_PATH = '/tmp/HospitalSystem.db'
-else:
-    DB_PATH = os.path.join(os.path.dirname(__file__), 'HospitalSystem.db')
+# ── Fallback SQLite Path (for local development only) ─────────────────────
+DB_PATH = os.path.join(os.path.dirname(__file__), 'HospitalSystem.db')
 
 # ── PostgreSQL availability cache ─────────────────────────────────────────
 # Checked once at startup; avoids 3-second timeout on every request
