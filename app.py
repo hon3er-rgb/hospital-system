@@ -14,45 +14,17 @@ def template_dt(v, fmt='%Y-%m-%d %H:%M'):
 # ── Performance: pre-warm DB availability check at startup ─────────────────
 _check_pg_available()
 
-# ── Auto-initialize database if not exists or missing tables ────────────────
+# ── Auto-initialize database for PostgreSQL on Render ────────────────────────
 try:
-    from config import DB_PATH, get_db
+    from config import get_db
     import os
     
-    # Check if database exists and has required tables
-    db = get_db()
-    if db:
-        cursor = db.cursor()
-        try:
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='global_counters'")
-            has_table = cursor.fetchone()
-            if not has_table:
-                print("[Startup] Database missing global_counters table, reinitializing...")
-                db.close()
-                if os.path.exists(DB_PATH):
-                    os.remove(DB_PATH)
-                import init_db
-                init_db.init_db()
-                print("[Startup] Database reinitialized successfully!")
-        except Exception as check_error:
-            print(f"[Startup] Check error: {check_error}")
-            # If check fails, reinitialize
-            db.close()
-            if os.path.exists(DB_PATH):
-                os.remove(DB_PATH)
-            import init_db
-            init_db.init_db()
-            print("[Startup] Database reinitialized after check error!")
-        finally:
-            try:
-                db.close()
-            except:
-                pass
-    else:
-        print("[Startup] Database not found, initializing...")
+    # Check if using PostgreSQL (Render)
+    if os.getenv('PGHOST'):
+        print("[Startup] PostgreSQL detected, initializing database...")
         import init_db
         init_db.init_db()
-        print("[Startup] Database initialized successfully!")
+        print("[Startup] PostgreSQL database initialized successfully!")
 except Exception as e:
     print(f"[Startup] Warning: Could not initialize database: {e}")
 
