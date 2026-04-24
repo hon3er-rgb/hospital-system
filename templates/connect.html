@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: 100vh;">
+    <div class="row mb-5 animate__animated animate__fadeInDown">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold text-primary mb-2" style="letter-spacing: -1px;">غرف التواصل الطبي</h1>
+            <p class="text-muted fs-5">تواصل لحظي بصوت وصورة مع كافة أقسام المجمع عبر الشبكة الآمنة</p>
+            <div class="mx-auto bg-primary rounded-pill" style="width: 80px; height: 5px;"></div>
+        </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        {% for staff in staff_list %}
+        {% set d_val = (loop.index0 * 0.1)|string + 's' %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 animate__animated animate__fadeInUp staff-card-wrapper" 
+             style="--delay-val: {{ d_val }};">
+            <div class="card border-0 rounded-5 shadow-sm overflow-hidden h-100 staff-card" 
+                 style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                
+                <div class="position-relative p-4 text-center">
+                    <div class="status-indicator position-absolute top-0 end-0 m-4">
+                        <span class="badge rounded-pill bg-success p-2 px-3 shadow-sm animate__animated animate__pulse animate__infinite">
+                             <i class="fas fa-circle me-1" style="font-size: 0.6rem;"></i> نشط الآن
+                        </span>
+                    </div>
+
+                    <div class="avatar-box bg-white rounded-circle shadow-lg mx-auto mb-3 d-flex align-items-center justify-content-center border border-5 border-white" 
+                         style="width: 120px; height: 120px; background: linear-gradient(45deg, #007aff, #00c6ff) !important;">
+                        <i class="fas fa-user-md fa-4x text-white"></i>
+                    </div>
+
+                    <h4 class="fw-bold mb-1 text-dark">{{ staff.full_name_ar }}</h4>
+                    <span class="badge bg-soft-primary text-primary px-3 py-2 rounded-pill mb-4" style="background: rgba(0,122,255,0.1) !important;">
+                        <i class="fas fa-hospital-user me-1"></i> {{ staff.job_title or 'قسم طبي' }}
+                    </span>
+                    
+                    <div class="d-grid mt-2">
+                        <button onclick="makeCall('{{ staff.user_id }}', '{{ staff.full_name_ar }}')" 
+                                class="btn btn-primary rounded-pill py-3 fw-bold shadow-lg border-0 call-btn-pro" 
+                                style="background: linear-gradient(45deg, #007aff, #00c6ff) !important;">
+                             <i class="fas fa-video me-2"></i> بدء اتصال طبي مباشر
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .staff-card-wrapper {
+        animation-delay: var(--delay-val);
+    }
+    .staff-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    }
+    .call-btn-pro {
+        transition: all 0.3s ease;
+    }
+    .call-btn-pro:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(0,122,255,0.4) !important;
+        filter: brightness(1.1);
+    }
+    .bg-soft-primary {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+</style>
+{% endblock %}

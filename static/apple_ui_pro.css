@@ -1,0 +1,358 @@
+/* Professional Gradients & Icons System */
+/* ... (Existing gradients) ... */
+.icon-gradient-blue {
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.05));
+    color: #409cff;
+    border: 1px solid rgba(10, 132, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(10, 132, 255, 0.1);
+}
+
+.icon-gradient-green {
+    background: linear-gradient(135deg, rgba(48, 209, 88, 0.2), rgba(48, 209, 88, 0.05));
+    color: #30d158;
+    border: 1px solid rgba(48, 209, 88, 0.2);
+    box-shadow: 0 8px 16px rgba(48, 209, 88, 0.1);
+}
+
+.icon-gradient-red {
+    background: linear-gradient(135deg, rgba(255, 69, 58, 0.2), rgba(255, 69, 58, 0.05));
+    color: #ff453a;
+    border: 1px solid rgba(255, 69, 58, 0.2);
+    box-shadow: 0 8px 16px rgba(255, 69, 58, 0.1);
+}
+
+.icon-gradient-purple {
+    background: linear-gradient(135deg, rgba(191, 90, 242, 0.2), rgba(191, 90, 242, 0.05));
+    color: #bf5af2;
+    border: 1px solid rgba(191, 90, 242, 0.2);
+    box-shadow: 0 8px 16px rgba(191, 90, 242, 0.1);
+}
+
+.btn-gradient-blue {
+    background: linear-gradient(135deg, #007aff, #0051a8);
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+    transition: 0.3s;
+}
+
+.btn-gradient-blue:hover {
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-gradient-red {
+    background: linear-gradient(135deg, #ff3b30, #d70015);
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+    transition: 0.3s;
+}
+
+.btn-gradient-red:hover {
+    box-shadow: 0 8px 25px rgba(255, 59, 48, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Enhanced Card Headers */
+.text-gradient-blue {
+    background: linear-gradient(135deg, #409cff, #007aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-green {
+    background: linear-gradient(135deg, #30d158, #34c759);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-red {
+    background: linear-gradient(135deg, #ff453a, #ff3b30);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+    background: linear-gradient(135deg, #bf5af2, #af52de);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================================
+   Workflow Step Cards
+   ========================================================================= */
+/* Compact Workflow Cards */
+.workflow-card {
+    background: transparent;
+    /* No Background */
+    border-radius: 12px;
+    padding: 0;
+    /* Minimal padding */
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+    border: none;
+    /* No Border */
+    box-shadow: none;
+    /* No Shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: auto;
+}
+
+/* Hover Animation: Float & Pulse */
+.workflow-card:hover {
+    transform: translateY(-4px);
+    box-shadow: none;
+    border-color: transparent;
+    z-index: 10;
+}
+
+/* Internal Elements */
+/* Internal Elements: Scaled Down */
+.workflow-icon {
+    width: 28px;
+    /* Tiny Icon Box */
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    /* Tiny Icon */
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.workflow-card:hover .workflow-icon {
+    transform: scale(1.1) rotate(6deg);
+    background: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.workflow-count {
+    font-size: 1.1rem;
+    /* Tiny Number */
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 2px;
+    background: linear-gradient(45deg, #333, #666);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.workflow-label {
+    font-size: 0.65rem;
+    /* Tiny Label */
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+/* Light Mode Pastel Colors (Candy Design) */
+/* Light Mode Minimal (No Card Background) */
+.step-accounting,
+.step-triage,
+.step-doctor,
+.step-tests,
+.step-pharmacy,
+.step-done {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Icon Colors Only */
+.step-accounting .workflow-icon {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.step-triage .workflow-icon {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.step-doctor .workflow-icon {
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.step-tests .workflow-icon {
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+}
+
+.step-pharmacy .workflow-icon {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.step-done .workflow-icon {
+    color: #475569;
+    background: rgba(71, 85, 105, 0.1);
+}
+
+/* Minimal Hover Effects */
+.step-accounting:hover .workflow-icon {
+    background: rgba(59, 130, 246, 0.2);
+    transform: scale(1.1);
+}
+
+.step-triage:hover .workflow-icon {
+    background: rgba(245, 158, 11, 0.2);
+    transform: scale(1.1);
+}
+
+.step-doctor:hover .workflow-icon {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.1);
+}
+
+.step-tests:hover .workflow-icon {
+    background: rgba(6, 182, 212, 0.2);
+    transform: scale(1.1);
+}
+
+.step-pharmacy:hover .workflow-icon {
+    background: rgba(16, 185, 129, 0.2);
+    transform: scale(1.1);
+}
+
+.step-done:hover .workflow-icon {
+    background: rgba(71, 85, 105, 0.2);
+    transform: scale(1.1);
+}
+
+.step-done:hover {
+    background: #e2e8f0;
+}
+
+/* =========================================================================
+   Timeline Dashboard Card (Dark Mode Support)
+   ========================================================================= */
+.timeline-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease;
+}
+
+
+.step-circle {
+    background-color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+/* Text Colors in Timeline */
+
+.neo-tile:hover {
+    box-shadow: none !important;
+    transform: translateY(-5px);
+    background: var(--card) !important;
+}
+
+.neo-tile::before {
+    display: none !important;
+}
+
+/* Border Glows */
+.tile-blue:hover {
+    border: 1px solid #3b82f6 !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4) !important;
+}
+
+.tile-red:hover {
+    border: 1px solid #ef4444 !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4) !important;
+}
+
+.tile-indigo:hover {
+    border: 1px solid #6366f1 !important;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4) !important;
+}
+
+.tile-cyan:hover {
+    border: 1px solid #06b6d4 !important;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4) !important;
+}
+
+.tile-gray:hover {
+    border: 1px solid #94a3b8 !important;
+    box-shadow: 0 0 15px rgba(148, 163, 184, 0.4) !important;
+}
+
+.tile-green:hover {
+    border: 1px solid #22c55e !important;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4) !important;
+}
+
+.tile-teal:hover {
+    border: 1px solid #14b8a6 !important;
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.4) !important;
+}
+
+.tile-orange:hover {
+    border: 1px solid #f97316 !important;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4) !important;
+}
+
+.tile-dark:hover {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 0 15px rgba(203, 213, 225, 0.4) !important;
+}
+
+.tile-slate:hover {
+    border: 1px solid #64748b !important;
+    box-shadow: 0 0 15px rgba(100, 116, 139, 0.4) !important;
+}
+
+/* FIX: Prevent icons from turning white in Light Mode */
+.neo-tile:hover i.text-primary {
+    color: #3b82f6 !important;
+}
+
+.neo-tile:hover i.text-success {
+    color: #22c55e !important;
+}
+
+.neo-tile:hover i.text-danger {
+    color: #ef4444 !important;
+}
+
+.neo-tile:hover i.text-warning {
+    color: #f59e0b !important;
+}
+
+.neo-tile:hover i.text-info {
+    color: #06b6d4 !important;
+}
+
+.neo-tile:hover i.text-secondary {
+    color: #64748b !important;
+}
+
+.neo-tile:hover i.text-dark {
+    color: #1e293b !important;
+}
+
+.neo-tile:hover i.text-muted {
+    color: #64748b !important;
+}
+
+/* Ensure Text Color Visibility */
+.neo-tile:hover span {
+    color: var(--text) !important;
+}
