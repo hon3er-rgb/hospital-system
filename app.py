@@ -14,17 +14,15 @@ def template_dt(v, fmt='%Y-%m-%d %H:%M'):
 # ── Performance: pre-warm DB availability check at startup ─────────────────
 _check_pg_available()
 
-# ── Auto-initialize database for PostgreSQL on Render ────────────────────────
+# ── Auto-initialize database if not exists ────────────────────────────────
 try:
-    from config import get_db
+    from config import DB_PATH
     import os
-    
-    # Check if using PostgreSQL (Render)
-    if os.getenv('PGHOST'):
-        print("[Startup] PostgreSQL detected, initializing database...")
+    if not os.path.exists(DB_PATH):
+        print("[Startup] Database not found, initializing...")
         import init_db
         init_db.init_db()
-        print("[Startup] PostgreSQL database initialized successfully!")
+        print("[Startup] Database initialized successfully!")
 except Exception as e:
     print(f"[Startup] Warning: Could not initialize database: {e}")
 

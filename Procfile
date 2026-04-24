@@ -1,1 +1,1 @@
-web: python init_db.py && python app.py
+web: python app.py
