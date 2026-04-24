@@ -58,7 +58,6 @@ desktop.ini
 
 # Logs
 *.log
-*.txt
 
 # Uploads (if contains sensitive data)
 uploads/*
