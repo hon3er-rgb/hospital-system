@@ -3,6 +3,4 @@ psycopg2-binary
 werkzeug
 psutil
 python-dotenv
-openai
-pyinstaller
 requests
