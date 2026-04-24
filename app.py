@@ -227,6 +227,13 @@ def page_not_found(e):
         return "File Not Found", 404
     return redirect(url_for('index.index'))
 
+@app.errorhandler(500)
+def internal_error(e):
+    import traceback
+    error_msg = traceback.format_exc()
+    print(f"[ERROR] {error_msg}")
+    return f"Internal Server Error: {str(e)}", 500
+
 # ── Template globals ───────────────────────────────────────────────────────
 @app.context_processor
 def inject_now():
