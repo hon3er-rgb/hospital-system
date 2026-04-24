@@ -14,6 +14,18 @@ def template_dt(v, fmt='%Y-%m-%d %H:%M'):
 # ── Performance: pre-warm DB availability check at startup ─────────────────
 _check_pg_available()
 
+# ── Auto-initialize database if not exists ────────────────────────────────
+try:
+    from config import DB_PATH
+    import os
+    if not os.path.exists(DB_PATH):
+        print("[Startup] Database not found, initializing...")
+        import init_db
+        init_db.init_db()
+        print("[Startup] Database initialized successfully!")
+except Exception as e:
+    print(f"[Startup] Warning: Could not initialize database: {e}")
+
 # ── Request lifecycle: close DB after each request ────────────────────────
 @app.teardown_request
 def teardown_request(exception):
