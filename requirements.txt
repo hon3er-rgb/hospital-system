@@ -4,3 +4,4 @@ werkzeug
 psutil
 python-dotenv
 requests
+Flask-Session

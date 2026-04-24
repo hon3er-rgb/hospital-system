@@ -2,8 +2,14 @@ import os
 import secrets
 from config import _check_pg_available, format_datetime, local_now, local_now_naive  # type: ignore
 from flask import Flask, session, g, send_from_directory, redirect, url_for, request # type: ignore
+from flask_session import Session
 
 app = Flask(__name__)
+# Configure server‑side session storage (filesystem) – works in Vercel serverless env
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = os.path.join(app.instance_path, 'flask_session')
+app.config['SESSION_PERMANENT'] = False
+Session(app)
 app.secret_key = secrets.token_hex(32)
 
 def template_dt(v, fmt='%Y-%m-%d %H:%M'):
