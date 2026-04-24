@@ -218,3 +218,9 @@ CREATE TABLE IF NOT EXISTS system_settings (
     setting_key VARCHAR(100) UNIQUE NOT NULL,
     setting_value TEXT
 );
+
+-- --- 14. Global Counters ---
+CREATE TABLE IF NOT EXISTS global_counters (
+    counter_name VARCHAR(50) PRIMARY KEY,
+    val INT DEFAULT 0
+);
